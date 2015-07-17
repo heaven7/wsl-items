@@ -19,14 +19,14 @@ Package.on_use(function (api) {
     api.use(
         [
             'accounts-password',
-            'aldeed:simple-schema',
-            'aldeed:collection2',
-            'aldeed:autoform',
+            'aldeed:simple-schema@1.3.3',
+            'aldeed:collection2@2.3.3',
+            'aldeed:autoform@4.2.2',
             'meteor',
             'livedata',
             'coffeescript',
             'templating',
-            'iron:router'
+            'iron:router@1.0.9'
         ],
         both)
 
