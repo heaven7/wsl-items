@@ -2,7 +2,7 @@ Package.describe({
     name: 'heaven7:wsl-items',
     summary: "WSL Items-Package",
     version: "0.0.1",
-    git: ""
+    git: "https://github.com/heaven7/wsl-items.git"
 });
 
 both = ['client','server']
