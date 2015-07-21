@@ -10,25 +10,22 @@ both = ['client','server']
 Package.on_use(function (api) {
     api.versionsFrom("METEOR@1.0.1");
 
-
-    api.use([
+    api.use(
+        [
             'less'
         ],
         'client')
 
     api.use(
         [
-            'accounts-password',
-            'aldeed:simple-schema@1.3.3',
-            'aldeed:collection2@2.3.3',
-            'aldeed:autoform@4.2.2',
-            'meteor',
-            'livedata',
-            'coffeescript',
-            'templating',
-            'iron:router@1.0.9'
+            'heaven7:wsl-core'
         ],
-        both)
+        both);
+
+    api.imply(
+        [
+            'heaven7:wsl-core',
+        ]);
 
     api.addFiles(
         [
@@ -36,7 +33,7 @@ Package.on_use(function (api) {
             'lib/both/schemas.coffee',
             'lib/both/router.coffee'
         ],
-        both)
+        both);
 
     api.addFiles(
         [
@@ -55,7 +52,4 @@ Package.on_use(function (api) {
         ],
         'server')
 
-    api.imply('aldeed:simple-schema')
-    api.imply('aldeed:collection2')
-    api.imply('aldeed:autoform')
-})
+});
