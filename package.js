@@ -41,7 +41,7 @@ Package.on_use(function (api) {
             'lib/client/helpers.coffee',
             'lib/client/templates.coffee'
         ],
-        'client')
+        'client');
 
     api.addFiles(
         [
@@ -50,6 +50,8 @@ Package.on_use(function (api) {
             'lib/server/publish.coffee',
             'lib/server/utils.coffee'
         ],
-        'server')
+        'server');
+
+    api.export('Items', both);
 
 });
