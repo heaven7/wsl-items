@@ -7,7 +7,9 @@
             {{/each}}
         {{/if}}
     </ul>
-    {{> insertItemForm}}
+    {{#if isLoggedIn}}
+        {{> insertItemForm}}
+    {{/if}}
 </template>
 
 <template name="item">

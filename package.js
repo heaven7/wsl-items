@@ -10,22 +10,8 @@ both = ['client','server']
 Package.on_use(function (api) {
     api.versionsFrom("METEOR@1.0.1");
 
-    api.use(
-        [
-            'less'
-        ],
-        'client')
-
-    api.use(
-        [
-            'heaven7:wsl-core'
-        ],
-        both);
-
-    api.imply(
-        [
-            'heaven7:wsl-core',
-        ]);
+    api.use(['heaven7:wsl-core'], both);
+    api.imply(['heaven7:wsl-core']);
 
     api.addFiles(
         [
@@ -43,6 +29,14 @@ Package.on_use(function (api) {
             'lib/server/utils.coffee'
         ],
         'server');
+
+    api.addFiles(
+        [
+            'lib/client/templates.html',
+            'lib/client/templates.coffee',
+            'lib/client/helpers.coffee'
+        ],
+        'client');
 
     api.export('Items', both);
 
