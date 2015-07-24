@@ -49,4 +49,4 @@ Schemas.Items = new SimpleSchema
     optional: true
     regEx: SimpleSchema.RegEx.Id
 
-@Items.attachSchema(Schemas.Items)
+Items.attachSchema(Schemas.Items)

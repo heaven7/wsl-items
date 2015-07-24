@@ -1,5 +1,3 @@
-Meteor.subscribe('items')
-
 AutoForm.hooks insertItemForm:
   onError: (insert, error, template) ->
   #  console.log error

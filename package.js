@@ -37,14 +37,6 @@ Package.on_use(function (api) {
 
     api.addFiles(
         [
-            'lib/client/templates.html',
-            'lib/client/helpers.coffee',
-            'lib/client/templates.coffee'
-        ],
-        'client');
-
-    api.addFiles(
-        [
             'lib/server/allow.coffee',
             'lib/server/methods.coffee',
             'lib/server/publish.coffee',
