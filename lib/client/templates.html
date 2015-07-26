@@ -7,7 +7,7 @@
             {{/each}}
         {{/if}}
     </ul>
-    {{#if isLoggedIn}}
+    {{#if $.Meteor.userId}}
         {{> insertItemForm}}
     {{/if}}
 </template>
