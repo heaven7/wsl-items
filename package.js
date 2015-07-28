@@ -13,8 +13,6 @@ Package.on_use(function (api) {
     api.use(['heaven7:wsl-core'], both);
     api.imply(['heaven7:wsl-core']);
 
-    api.addFiles('package-tap.i18n', both);
-
     api.addFiles([
         'lib/both/collections.coffee',
         'lib/both/schemas.coffee',
@@ -33,12 +31,6 @@ Package.on_use(function (api) {
         'lib/client/templates.coffee',
         'lib/client/helpers.coffee'
     ], 'client');
-
-    api.addFiles([
-        'i18n/de.i18n.json',
-        'i18n/en.i18n.json',
-        'i18n/es.i18n.json'
-    ], both);
 
     api.export('Items', both);
 });
