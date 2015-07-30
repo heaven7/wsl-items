@@ -10,7 +10,7 @@ both = ['client','server']
 Package.on_use(function (api) {
     api.versionsFrom("METEOR@1.0.1");
 
-    api.use(['heaven7:wsl-core'], both);
+    api.use(['heaven7:wsl-core@0.0.1'], both);
     api.imply(['heaven7:wsl-core']);
 
     api.addFiles([
