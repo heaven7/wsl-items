@@ -14,9 +14,9 @@ Package.on_use(function (api) {
     api.imply(['heaven7:wsl-core']);
 
     api.addFiles([
-        'lib/both/collections.coffee',
-        'lib/both/schemas.coffee',
-        'lib/both/router.coffee'
+        'lib/both/items.js',
+        'lib/both/schemas.js',
+        'lib/both/router.js'
     ], both);
 
     api.addFiles([
