@@ -1,4 +1,7 @@
 AutoForm.hooks insertItemForm:
+  onSubmit: (insert, doc) ->
+    console.log("onSubmit: " + doc)
+
   onError: (insert, error, template) ->
   #  console.log error
 
