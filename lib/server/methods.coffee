@@ -9,7 +9,10 @@ Meteor.methods
   updateItem: (doc)->
     check(doc, Schemas.Items)
     @unblock()
-    if(Items.update({id: this._id}, {$set: doc}))
+    Items.update {id: this._id}, {$set: doc}, (error)->
+      if error
+        console.log('Error: ' + error);
+
       console.log('update successful')
       true
 

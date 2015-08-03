@@ -5,7 +5,7 @@ Package.describe({
     git: "https://github.com/heaven7/wsl-items.git"
 });
 
-both = ['client','server']
+both = ['client','server'];
 
 Package.on_use(function (api) {
     api.versionsFrom("METEOR@1.0.1");
