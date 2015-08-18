@@ -1,2 +1,2 @@
-Meteor.publish null, ->
+Meteor.publish 'items', ->
     Items.find()

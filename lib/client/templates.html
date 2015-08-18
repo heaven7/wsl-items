@@ -27,7 +27,7 @@
 </template>
 
 <template name="insertItemForm">
-    {{#autoForm collection="Items" meteormethod="newItem" type="method" id="insertItemForm"}}
+    {{#autoForm collection="Items" meteormethod="newItem" type="insert" id="insertItemForm"}}
         {{> afQuickField name='title'}}
         {{> afQuickField name='description'}}
         {{> afQuickField name='need'}}

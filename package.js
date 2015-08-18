@@ -18,13 +18,14 @@ Package.on_use(function (api) {
 
     api.addFiles([
         'lib/both/items.js',
+        'lib/both/hooks.js',
         'lib/both/schemas.js',
         'lib/both/router.js'
     ], both);
 
     api.addFiles([
         'lib/server/allow.coffee',
-        'lib/server/methods.coffee',
+        'lib/server/methods.js',
         'lib/server/publish.coffee',
         'lib/server/utils.coffee'
     ], 'server');
