@@ -11,8 +11,7 @@ Package.on_use(function (api) {
     api.versionsFrom("METEOR@1.0.1");
 
     api.use([
-        'heaven7:wsl-core@0.0.1',
-        'heaven7:wsl-locations@0.0.1'
+        'heaven7:wsl-core@0.0.1'
     ], both);
 
     api.imply(['heaven7:wsl-core']);

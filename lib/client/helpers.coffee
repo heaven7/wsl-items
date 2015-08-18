@@ -7,10 +7,10 @@ AutoForm.hooks insertItemForm:
 
   onSuccess: (insert, doc)->
 #    console.log(doc);
-    search = Session.get('locationString');
-    if(search)
-      WSL.locations.geocode(search);
-      Meteor.call('addLocationToItem', doc, Session.get('locationLatLng'));
+    #search = Session.get('locationString');
+    #if(search)
+    #  WSL.locations.geocode(search);
+    #  Meteor.call('addLocationToItem', doc, Session.get('locationLatLng'));
 
 
 
