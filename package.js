@@ -18,7 +18,7 @@ Package.on_use(function (api) {
 
     api.addFiles([
         'lib/both/items.js',
-        'lib/both/hooks.js',
+        'lib/both/helpers.js',
         'lib/both/schemas.js',
         'lib/both/router.js'
     ], both);
@@ -31,6 +31,7 @@ Package.on_use(function (api) {
     ], 'server');
 
     api.addFiles([
+        'lib/client/hooks.js',
         'lib/client/templates.html',
         'lib/client/templates.coffee',
         'lib/client/helpers.coffee'
