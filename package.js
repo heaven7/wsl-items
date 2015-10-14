@@ -33,8 +33,8 @@ Package.on_use(function (api) {
     api.addFiles([
         'lib/client/hooks.js',
         'lib/client/templates.html',
-        'lib/client/templates.coffee',
-        'lib/client/helpers.coffee'
+        'lib/client/templates.js',
+        'lib/client/helpers.js'
     ], 'client');
 
     api.export('Items', both);
