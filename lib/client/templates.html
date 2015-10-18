@@ -8,7 +8,7 @@
         {{/if}}
     </ul>
     {{#if $.Meteor.userId}}
-        {{> insertItemForm}}
+        {{> insertItemForm doc=$.Meteor.userId docType="User"}}
     {{/if}}
 </template>
 
@@ -32,11 +32,15 @@
         {{> afQuickField name='description'}}
         {{> afQuickField name='need'}}
         {{> locationInputField}}
+
+        {{> afQuickField name='doc' value=doc type='hidden' }}
+        {{> afQuickField name='docType' value=docType type='hidden'}}
         <button id="submitItemForm" type="submit" class="btn btn-primary">Insert</button>
     {{/autoForm}}
 </template>
 
 <template name="editItemForm">
+    {{itemUsers}}
     {{#autoForm collection="Items" doc=doc meteormethod="updateItem" type="method" id="editItemForm"}}
         {{> afQuickField name='title'}}
         {{> afQuickField name='description'}}
