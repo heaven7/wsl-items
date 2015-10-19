@@ -1,7 +1,7 @@
 
 Items.allow
   insert: (userId, doc) ->
-  	if(userId.indexOf(doc.owners) > -1)
+  	if(doc.owners.indexOf(userId) > -1)
     	true
   update: (userId, doc, fields, modifier) ->
     userId == doc.owner
