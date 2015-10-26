@@ -26,7 +26,7 @@ Package.on_use(function (api) {
     api.addFiles([
         'lib/server/allow.coffee',
         'lib/server/methods.js',
-        'lib/server/publish.coffee',
+        'lib/server/publish.js',
         'lib/server/utils.coffee'
     ], 'server');
 

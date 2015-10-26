@@ -7,14 +7,14 @@
             {{/each}}
         {{/if}}
     </ul>
-    {{#if $.Meteor.userId}}
-        {{> insertItemForm doc=$.Meteor.userId docType="User"}}
+    {{#if loggedIn}}
+        {{> insertItemForm doc=currentUser docType="User"}}
     {{/if}}
 </template>
 
 <template name="item">
     {{# if selectedItem}}
-        {{> editItemForm}}
+        {{> editItemForm doc=this}}
     {{else}}
         <h4>{{title}}</h4>
         <p>{{description}}<span><small> - {{createdAt}}</small></span></p>
@@ -40,8 +40,7 @@
 </template>
 
 <template name="editItemForm">
-    {{itemUsers}}
-    {{#autoForm collection="Items" doc=doc meteormethod="updateItem" type="method" id="editItemForm"}}
+    {{#autoForm collection="Items" doc=doc meteormethod="updateItem" type="method-update" id="editItemForm"}}
         {{> afQuickField name='title'}}
         {{> afQuickField name='description'}}
         {{> afQuickField name='need'}}
