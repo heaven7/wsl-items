@@ -1,17 +1,17 @@
 Package.describe({
     name: 'heaven7:wsl-items',
     summary: "WSL Items-Package",
-    version: "0.0.1",
+    version: "0.0.2",
     git: "https://github.com/heaven7/wsl-items.git"
 });
 
 both = ['client','server'];
 
 Package.on_use(function (api) {
-    api.versionsFrom("METEOR@1.0.1");
+    api.versionsFrom('1.2');
 
     api.use([
-        'heaven7:wsl-core@0.0.1'
+        'heaven7:wsl-core@0.0.2'
     ], both);
 
     api.imply(['heaven7:wsl-core']);
