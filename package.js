@@ -8,7 +8,8 @@ Package.describe({
 const both = ['client','server'],
     packages = [
         'heaven7:wsl-core@0.0.3_1',
-        'heaven7:wsl-fulfiller@0.0.3'
+        'heaven7:wsl-fulfiller@0.0.3',
+        'heaven7:wsl-locations@0.0.3'
     ]
 
 Package.on_use(function (api) {
