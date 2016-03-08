@@ -21,7 +21,7 @@
         {{# if need}}
             <p>need</p>
         {{/ if}}
-        <button class="editItem">Edit</button>
-        <small><button class="deleteItem">Delete</button></small>
+        {{> button_icon_only icon="edit" class="editItem mini" }}
+        {{> button_icon_only icon="delete" class="deleteItem mini" }}
     {{/ if}}
 </template>

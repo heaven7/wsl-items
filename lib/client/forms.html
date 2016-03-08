@@ -1,22 +1,26 @@
 <template name="insertItemForm">
     {{#autoForm collection="Items" meteormethod="newItem" type="insert" id="insertItemForm"}}
         {{> afQuickField name='title'}}
-        {{> afQuickField name='description'}}
-        {{> afQuickField name='need'}}
-        {{> locationInputField}}
+        {{> afQuickField name='description' rows=3}}
+        <div class="fields seven wide">
+            {{> afQuickField name='type' options=itemTypes}}
+            {{> locationInputField}}
+        </div>
 
         {{> afQuickField name='doc' value=doc._id type='hidden' }}
         {{> afQuickField name='docType' value=docType type='hidden'}}
-        <button id="submitItemForm" type="submit" class="btn btn-primary">Insert</button>
+        {{> formCustomActions textSubmit=saveItem}}
     {{/autoForm}}
 </template>
 
 <template name="editItemForm">
     {{#autoForm collection="Items" doc=doc meteormethod="updateItem" type="method-update" id="editItemForm"}}
         {{> afQuickField name='title'}}
-        {{> afQuickField name='description'}}
-        {{> afQuickField name='need'}}
-        <button id="submitUpdate" type="submit">Update</button>
-        <button id="cancelUpdate">Cancel</button>
+        {{> afQuickField name='description' rows=3}}
+        <div class="fields seven wide">
+            {{> afQuickField name='type' options=itemTypes}}
+            {{> locationInputField}}
+        </div>
+        {{> formUpdateActions}}
     {{/autoForm}}
 </template>
