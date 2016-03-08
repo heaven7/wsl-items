@@ -18,8 +18,8 @@
     {{else}}
         <h4>{{title}}</h4>
         <p>{{description}}<span><small> - {{createdAt}}</small></span></p>
-        {{# if need}}
-            <p>need</p>
+        {{# if type}}
+            <p>{{_ type}}</p>
         {{/ if}}
         {{> button_icon_only icon="edit" class="editItem mini" }}
         {{> button_icon_only icon="delete" class="deleteItem mini" }}

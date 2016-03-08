@@ -12,7 +12,11 @@ const both = ['client','server'],
         'heaven7:wsl-fulfiller@0.0.3',
         'heaven7:wsl-locations@0.0.3',
         'heaven7:wsl-i18n@0.0.3',
-        'heaven7:wsl-translations@0.0.3'
+        'heaven7:wsl-translations@0.0.3',
+        'heaven7:wsl-alert@0.0.3',
+        'heaven7:wsl-permissions@0.0.3',
+        'ecmascript',
+        'es5-shim'
     ]
 
 Package.on_use(function (api) {
@@ -28,10 +32,8 @@ Package.on_use(function (api) {
     ], both)
 
     api.addFiles([
-        'lib/server/allow.coffee',
-        'lib/server/methods.js',
-        'lib/server/publish.js',
-        'lib/server/utils.coffee'
+        'lib/server/allow.js',
+        'lib/server/publish.js'
     ], 'server')
 
     api.addFiles([
