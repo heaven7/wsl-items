@@ -1,24 +1,37 @@
-<template name="insertItemForm">
-    {{#autoForm collection="Items" type="insert" id="insertItemForm"}}
-        {{> afQuickField name='title'}}
-        {{> afQuickField name='description' rows=3}}
-        <div class="fields seven wide">
-            {{> afQuickField name='type' options=itemTypes}}
-            {{> locationInputField}}
+<template name='insertItemForm'>
+    {{#autoForm collection='Items' type='insert' id='insertItemForm' class='large'}}
+        <div class="ui center aligned header">
+            <div class="two fields">
+                {{> afQuickField name='type' options=itemTypes label=false}}
+                {{> afQuickField name='title' class='green basic' label=false placeholder=tellOthers}}
+                <a class='toggle-item-options'>
+                    {{> icon icon='options large'}} {{_ 'more'}}
+                </a>
+            </div>
+            <div class='item-options'>
+                {{> divider}}
+                <div class='three fields'>
+                    {{> formField label=rangeLabel name='range' max=100 min=0 step=5 value=20 type='range'}}
+                    {{> afQuickField name='units' options=unitTypes}}
+                    <div class='field five wide'>
+                        {{> locationInputField}}
+                    </div>
+                </div>
+            </div>
+            {{> afQuickField name='doc' value=doc._id type='hidden' }}
+            {{> afQuickField name='docType' value=docType type='hidden'}}
+            {{> icon_header class='center aligned' icon='heart circular red link big submit-item'}}
         </div>
-
-        {{> afQuickField name='doc' value=doc._id type='hidden' }}
-        {{> afQuickField name='docType' value=docType type='hidden'}}
-        {{> formCustomActions textSubmit=saveItem}}
     {{/autoForm}}
 </template>
 
-<template name="editItemForm">
-    {{#autoForm collection="Items" doc=doc type="update" id="editItemForm"}}
+<template name='editItemForm'>
+    {{#autoForm collection='Items' doc=doc type='update' id='editItemForm'}}
         {{> afQuickField name='title'}}
         {{> afQuickField name='description' rows=3}}
-        <div class="fields seven wide">
+        <div class='fields seven wide'>
             {{> afQuickField name='type' options=itemTypes}}
+            {{> afQuickField name='units' options=unitTypes}}
             {{> locationInputField}}
         </div>
         {{> formUpdateActions}}

@@ -1,14 +1,9 @@
 <template name="itemsList">
-    <h3>Items-List</h3>
-    <ul>
-        {{#if items}}
-            {{#each items}}
-                <li>{{> item}}</li>
-            {{/each}}
-        {{/if}}
-    </ul>
     {{#if loggedIn}}
         {{> insertItemForm doc=currentUser docType="User"}}
+    {{/if}}
+    {{#if items}}
+        {{> segments segments=itemSegments }}
     {{/if}}
 </template>
 
@@ -21,7 +16,9 @@
         {{# if type}}
             <p>{{_ type}}</p>
         {{/ if}}
-        {{> button_icon_only icon="edit" class="editItem mini" }}
-        {{> button_icon_only icon="delete" class="deleteItem mini" }}
+        {{#if isItemOwner}}
+            {{> button_icon_only icon="edit" class="editItem mini" }}
+            {{> button_icon_only icon="delete" class="deleteItem mini" }}
+        {{/if}}
     {{/ if}}
 </template>
