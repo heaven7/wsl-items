@@ -12,13 +12,10 @@
         {{> editItemForm doc=this}}
     {{else}}
         <h4>{{title}}</h4>
-        <p>{{description}}<span><small> - {{createdAt}}</small></span></p>
-        {{# if type}}
-            <p>{{_ type}}</p>
-        {{/ if}}
+        <p>{{description}}</p>
         {{#if isItemOwner}}
-            {{> button_icon_only icon="edit" class="editItem mini" }}
-            {{> button_icon_only icon="delete" class="deleteItem mini" }}
+            {{> button_icon_only icon="edit" class="editItem mini circular" }}
+            {{> button_icon_only icon="delete" class="deleteItem mini circular" }}
         {{/if}}
     {{/ if}}
 </template>
