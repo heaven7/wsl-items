@@ -28,8 +28,7 @@ Package.on_use(function (api) {
     api.addFiles([
         'lib/both/items.js',
         'lib/both/helpers.js',
-        'lib/both/schemas.js',
-        'lib/both/router.js'
+        'lib/both/schemas.js'
     ], both)
 
     api.addFiles([
