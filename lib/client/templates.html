@@ -2,7 +2,8 @@
     {{#if loggedIn}}
         {{> insertItemForm doc=currentUser docType="User"}}
     {{/if}}
-    {{#if items}}
+    {{#if itemSegments}}
+        {{> map data=items template='itemPopup' }}
         {{> segments segments=itemSegments }}
     {{/if}}
 </template>
@@ -18,4 +19,15 @@
             {{> button_icon_only icon="delete" class="deleteItem mini circular" }}
         {{/if}}
     {{/ if}}
+</template>
+
+
+
+<template name="itemPopup">
+    <h5>{{title}}</h5>
+    <p>{{_ type}}</p>
+    <p>{{place}}</p>
+    <small>
+        {{radius}} {{units}} {{_ 'radius'}}
+    </small>
 </template>

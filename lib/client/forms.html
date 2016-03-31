@@ -14,7 +14,7 @@
                     {{> formField label=radiusLabel name='radius' max=100 min=0 step=5 value=20 type='range'}}
                     {{> afQuickField name='units' options=unitTypes}}
                     <div class='field five wide'>
-                        {{> locationInputField}}
+                        {{> insertLocationInputField docType='Items'}}
                     </div>
                 </div>
             </div>
@@ -31,8 +31,11 @@
         {{> afQuickField name='description' rows=3}}
         <div class='fields seven wide'>
             {{> afQuickField name='type' options=itemTypes}}
+            <div class="field">
+                {{> formField label=radiusLabel name='radius' max=100 min=0 step=5 value=rangeValue type='range'}}
+            </div>
             {{> afQuickField name='units' options=unitTypes}}
-            {{> locationInputField}}
+            {{> editLocationInputField doc=doc docType='Items'}}
         </div>
         {{> formUpdateActions}}
     {{/autoForm}}
