@@ -1,29 +1,35 @@
-<template name="itemsList">
+<template name='itemsList'>
     {{#if loggedIn}}
-        {{> insertItemForm doc=currentUser docType="User"}}
+        {{> insertItemForm doc=currentUser docType='User'}}
     {{/if}}
-    {{#if itemSegments}}
-        {{> map data=items template='itemPopup' }}
+        {{> divider}}
+    {{> itemsFilter}}
+    {{> map data=items template='itemPopup' }}
+    {{#if Template.subscriptionsReady}}
         {{> segments segments=itemSegments }}
+    {{else}}
+        {{> loader}}
     {{/if}}
 </template>
 
-<template name="item">
+<template name='item'>
     {{# if selectedItem}}
         {{> editItemForm doc=this}}
     {{else}}
         <h4>{{title}}</h4>
         <p>{{description}}</p>
         {{#if isItemOwner}}
-            {{> button_icon_only icon="edit" class="editItem mini circular" }}
-            {{> button_icon_only icon="delete" class="deleteItem mini circular" }}
+            {{> button_icon_only icon='edit' class='editItem mini circular' }}
+            {{> button_icon_only icon='delete' class='deleteItem mini circular' }}
         {{/if}}
     {{/ if}}
 </template>
 
+<template name='itemsFilter'>
+    {{> menu items=menuItems class='text'}}
+</template>
 
-
-<template name="itemPopup">
+<template name='itemPopup'>
     <h5>{{title}}</h5>
     <p>{{_ type}}</p>
     <p>{{place}}</p>

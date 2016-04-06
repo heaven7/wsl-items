@@ -38,6 +38,7 @@ Package.on_use(function (api) {
 
     api.addFiles([
         'lib/client/hooks.js',
+        'lib/client/utils.js',
         'lib/client/templates.html',
         'lib/client/templates.js',
         'lib/client/forms.html',
