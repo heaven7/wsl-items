@@ -2,9 +2,9 @@
     {{#if loggedIn}}
         {{> insertItemForm doc=currentUser docType='User'}}
     {{/if}}
-        {{> divider}}
-    {{> itemsFilter}}
+    {{> divider}}
     {{> map data=items template='itemPopup' }}
+    {{> itemsFilter}}
     {{#if Template.subscriptionsReady}}
         {{> segments segments=itemSegments }}
     {{else}}
@@ -36,4 +36,10 @@
     <small>
         {{radius}} {{units}} {{_ 'radius'}}
     </small>
+</template>
+
+<template name="itemBottom">
+    {{#each itemOwners}}
+        {{> avatar_small user=this}}
+    {{/each}}
 </template>
