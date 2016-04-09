@@ -22,8 +22,8 @@
         <h4>{{title}}</h4>
         <p>{{description}}</p>
         {{#if isItemOwner}}
-            {{> button_icon_only icon='edit' class='editItem mini circular' }}
-            {{> button_icon_only icon='delete' class='deleteItem mini circular' }}
+            {{> button_icon_only icon='edit' class='edit-item mini circular' }}
+            {{> button_icon_only icon='delete' class='delete-item mini circular' }}
         {{else}}
             {{>button class='small orange apply-for-item' text=applyForItem}}
         {{/if}}
