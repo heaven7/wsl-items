@@ -16,11 +16,16 @@
     {{# if selectedItem}}
         {{> editItemForm doc=this}}
     {{else}}
+        {{#if isItemOwner}} {{else}}
+            {{> menu items=itemMenuItems class='text right floated'}}
+        {{/if}}
         <h4>{{title}}</h4>
         <p>{{description}}</p>
         {{#if isItemOwner}}
             {{> button_icon_only icon='edit' class='editItem mini circular' }}
             {{> button_icon_only icon='delete' class='deleteItem mini circular' }}
+        {{else}}
+            {{>button class='small orange apply-for-item' text=applyForItem}}
         {{/if}}
     {{/ if}}
 </template>
@@ -38,8 +43,11 @@
     </small>
 </template>
 
-<template name="itemBottom">
+<template name='itemBottom'>
     {{#each itemOwners}}
         {{> avatar_small user=this}}
     {{/each}}
+
+    {{> button_icon_only icon='comment outline' class='show-item-comments circular right floated' }}
+    {{> button_icon_only icon='heart outline' class='show-item-likes circular right floated' }}
 </template>
