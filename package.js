@@ -16,6 +16,7 @@ const both = ['client','server'],
         'heaven7:wsl-alert@0.0.3',
         'heaven7:wsl-permissions@0.0.3',
         'heaven7:date@0.0.1',
+        'heaven7:wsl-social@0.0.1',
         'ecmascript',
         'es5-shim'
     ]

@@ -3,17 +3,19 @@
         <div class="ui center aligned header">
             <div class="two fields">
                 {{> afQuickField name='type' options=itemTypes label=false}}
-                {{> afQuickField name='title' class='green basic' label=false placeholder=tellOthers}}
+                {{> afQuickField name='title' rightIcon='photo link' label=false placeholder=tellOthers}}
                 <a class='toggle-item-options'>
                     {{> icon icon='options large'}} {{_ 'more'}}
                 </a>
             </div>
             <div class='item-options'>
-                <div class='three fields'>
-                    <div class='field five wide'>
+                <div class='four fields'>
+                    <div class='field'>
                         {{> insertLocationInputField label=false placeholder=locationPlaceholder docType='Items'}}
                     </div>
                     {{> formField label=radiusLabel name='radius' max=100 min=0 step=5 value=20 type='range'}}
+                    <div class='field'></div>
+                    <div class='field'></div>
                 </div>
             </div>
             {{> afQuickField name='doc' value=doc._id type='hidden' }}

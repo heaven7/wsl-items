@@ -47,7 +47,20 @@
     {{#each itemOwners}}
         {{> avatar_small user=this}}
     {{/each}}
-
+    {{_id}}
     {{> button_icon_only icon='comment outline' class='show-item-comments circular right floated' }}
-    {{> button_icon_only icon='heart outline' class='show-item-likes circular right floated' }}
+
+    {{#if isHeartedByUser _id 'Items' currentUserId}}
+        {{> button_icon_only icon='heart red' class='item-heart-action circular right floated' }}
+    {{else}}
+        {{> button_icon_only icon='heart red outline' class='item-heart-action circular right floated' }}
+    {{/if}}
+    <div class='ui button right floated mini circular hearts-count'>
+        <span>{{heartsCount _id}}</span>
+    </div>
+
+    {{#if showComments}}
+        {{> divider_with_icon icon='comments' class='mini' text=commentsCount}}
+        {{> commentsList id=_id docType='Items' user=currentUser}}
+    {{/if}}
 </template>
