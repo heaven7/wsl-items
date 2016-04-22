@@ -14,6 +14,7 @@
             </div>
         {{/if}}
         {{> segments segments=itemSegments }}
+        {{> showModal template="blockUserModal" id="blockUserModal" header=blockUserModalHeader}}
     {{else}}
         {{> loader}}
     {{/if}}
@@ -70,6 +71,11 @@
         {{> divider_with_icon icon='comments' class='mini' text=commentsCount}}
         {{> commentsList id=_id docType='Items' user=currentUser}}
     {{/if}}
+</template>
+
+<template name="blockUserModal">
+    {{> avatar_small user=user}}
+    {{> button text=blockUserText class='items-block-action' data-user-doc=userId}}
 </template>
 
 <template name="unblockItemsModal">
