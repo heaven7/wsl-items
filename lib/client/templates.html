@@ -7,10 +7,12 @@
     {{> itemsFilter}}
     {{#if Template.subscriptionsReady}}
         {{#if blockedItemsCount}}
-            <div class='ui ignored warning message'>
+            <div class='ui ignored info message'>
                 <small>{{_ 'there_are_items_blocked' blockedItemsCount}}</small>
                 {{> button_with_icon icon='flag outline' text=unblockButtonText class='basic small mini items-unblock-action'}}
-                {{> showModal template="unblockItemsModal" id="unblockItemsModal" header=unblockItemsText}}
+                {{#if unblockModal}}
+                    {{> showModal template="unblockItemsModal" id="unblockItemsModal" header=unblockItemsText}}
+                {{/if}}
             </div>
         {{/if}}
         {{> segments segments=itemSegments }}
@@ -55,7 +57,8 @@
     {{#each itemOwners}}
         {{> avatar_small user=this}}
     {{/each}}
-    {{_id}}
+
+    {{> button_icon_only icon='bar chart' class='item-stats-action circular right floated' }}
     {{> button_icon_only icon='comment outline' class='show-item-comments circular right floated' }}
 
     {{#if isHeartedByUser _id 'Items' currentUserId}}
@@ -71,6 +74,7 @@
         {{> divider_with_icon icon='comments' class='mini' text=commentsCount}}
         {{> commentsList id=_id docType='Items' user=currentUser}}
     {{/if}}
+
 </template>
 
 <template name="blockUserModal">
@@ -79,7 +83,16 @@
 </template>
 
 <template name="unblockItemsModal">
-    {{#each blockedItems}}
-         {{> button text=title class='item-unblock-action' data-item-doc=_id}}
-    {{/each}}
+    {{#if blockedItems}}
+        {{#each blockedItems}}
+             {{> button text=title class='item-unblock-action' data-item-doc=_id}}
+        {{/each}}
+    {{/if}}
+    {{#if blockedUsers}}
+        {{> divider}}
+        {{#each blockedUsers}}
+            {{> avatar_small user=this}}
+            {{> button text=unblockUserText class='item-unblock-action' data-item-user=this._id}}
+        {{/each}}
+    {{/if}}
 </template>
