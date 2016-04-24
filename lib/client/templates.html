@@ -58,7 +58,9 @@
         {{> avatar_small user=this}}
     {{/each}}
 
-    {{> button_icon_only icon='bar chart' class='item-stats-action circular right floated' }}
+    {{#if isOwner}}
+        {{> button_icon_only icon='bar chart' class='show-item-statistics circular right floated' }}
+    {{/if}}
     {{> button_icon_only icon='comment outline' class='show-item-comments circular right floated' }}
 
     {{#if isHeartedByUser _id 'Items' currentUserId}}
@@ -75,6 +77,18 @@
         {{> commentsList id=_id docType='Items' user=currentUser}}
     {{/if}}
 
+    {{#if showStatistics}}
+        {{> itemStatistics}}
+    {{/if}}
+</template>
+
+<template name="itemStatistics">
+    {{> divider_with_icon icon='bar chart' class='mini'}}
+    {{#if Template.subscriptionsReady}}
+        {{> statistics class='two' items=itemStats}}
+    {{else}}
+        {{> loader}}
+    {{/if}}
 </template>
 
 <template name="blockUserModal">
