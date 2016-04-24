@@ -19,8 +19,33 @@
 </template>
 
 <template name="heartedUsersModal">
-    {{> icon icon='heart red big'}} {{heartsCount _id}}
-    {{#each users}}
-        {{> avatar_small user=this}}
-    {{/each}}
+    {{> divider_with_icon icon='heart red big' text=heartsCountText}}
+    <div class="ui three doubling cards hearters">
+        {{#each users}}
+            <div class="ui fluid card link">
+                <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                        <div class="content">
+                            <div class="center">
+                                <div class="ui inverted button heart-action">
+                                    {{>icon icon='heart red'}} {{_ 'heart'}}
+                                </div>
+                                <div class="ui inverted button follow-action">
+                                    {{>icon icon='add user'}} {{_ 'follow'}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{#if this.profile.picture}}
+                        {{#with getDoc this.profile.picture 'Images'}}
+                            {{> image_card url=url}}
+                        {{/with}}
+                    {{/if}}
+                </div>
+                <div class="content">
+                    {{this.username}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
 </template>
