@@ -1,0 +1,26 @@
+<template name="blockUserModal">
+    {{> avatar_small user=user}}
+    {{> button text=blockUserText class='items-block-action' data-user-doc=userId}}
+</template>
+
+<template name="unblockItemsModal">
+    {{#if blockedItems}}
+        {{#each blockedItems}}
+            {{> button text=title class='item-unblock-action' data-item-doc=_id}}
+        {{/each}}
+    {{/if}}
+    {{#if blockedUsers}}
+        {{> divider}}
+        {{#each blockedUsers}}
+            {{> avatar_small user=this}}
+            {{> button text=unblockUserText class='item-unblock-action' data-item-user=this._id}}
+        {{/each}}
+    {{/if}}
+</template>
+
+<template name="heartedUsersModal">
+    {{> icon icon='heart red big'}} {{heartsCount _id}}
+    {{#each users}}
+        {{> avatar_small user=this}}
+    {{/each}}
+</template>

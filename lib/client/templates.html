@@ -68,7 +68,7 @@
     {{else}}
         {{> button_icon_only icon='heart red outline' class='item-heart-action circular right floated' }}
     {{/if}}
-    <div class='ui button right floated mini circular hearts-count'>
+    <div class='ui button right floated mini circular show-hearted-users'>
         <span>{{heartsCount _id}}</span>
     </div>
 
@@ -80,6 +80,10 @@
     {{#if showStatistics}}
         {{> itemStatistics}}
     {{/if}}
+
+    {{#if showHeartedUsers _id}}
+        {{> showModal template="heartedUsersModal" id="heartedUsersModal" header=title data=this}}
+    {{/if}}
 </template>
 
 <template name="itemStatistics">
@@ -88,25 +92,5 @@
         {{> statistics class='two' items=itemStats}}
     {{else}}
         {{> loader}}
-    {{/if}}
-</template>
-
-<template name="blockUserModal">
-    {{> avatar_small user=user}}
-    {{> button text=blockUserText class='items-block-action' data-user-doc=userId}}
-</template>
-
-<template name="unblockItemsModal">
-    {{#if blockedItems}}
-        {{#each blockedItems}}
-             {{> button text=title class='item-unblock-action' data-item-doc=_id}}
-        {{/each}}
-    {{/if}}
-    {{#if blockedUsers}}
-        {{> divider}}
-        {{#each blockedUsers}}
-            {{> avatar_small user=this}}
-            {{> button text=unblockUserText class='item-unblock-action' data-item-user=this._id}}
-        {{/each}}
     {{/if}}
 </template>

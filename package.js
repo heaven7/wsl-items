@@ -42,6 +42,8 @@ Package.on_use(function (api) {
         'lib/client/utils.js',
         'lib/client/templates.html',
         'lib/client/templates.js',
+        'lib/client/modals.html',
+        'lib/client/modals.js',
         'lib/client/forms.html',
         'lib/client/forms.js',
         'lib/client/helpers.js'
