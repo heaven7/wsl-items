@@ -29,7 +29,16 @@
         {{#if isItemOwner}} {{else}}
             {{> menu items=itemMenuItems class='text right floated'}}
         {{/if}}
-        <h4>{{title}}</h4>
+        <div class="ui list">
+            <div class="item">
+                <div class="ui small right floated content">
+                    {{#if $and from till}}
+                        {{_ 'only_valid'}}: {{unix2Date from}} - {{unix2Date till}}
+                    {{/if}}
+                </div>
+                <h4>{{title}}</h4>
+            </div>
+        </div>
         <p>{{description}}</p>
         {{#if isItemOwner}}
             {{> button_icon_only icon='edit' class='edit-item mini circular' }}

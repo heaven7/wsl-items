@@ -1,39 +1,53 @@
-<template name='insertItemForm'>
-    {{#autoForm collection='Items' type='insert' id='insert-item-form' class='large'}}
+<template name="insertItemForm">
+    {{#autoForm collection="Items" type="insert" id="insert-item-form" class="large"}}
         <div class="ui center aligned header">
             <div class="two fields">
-                {{> afQuickField name='type' options=itemTypes label=false}}
-                {{> afQuickField name='title' rightIcon='photo link' label=false placeholder=tellOthers}}
-                <a class='toggle-item-options'>
-                    {{> icon icon='options large'}} {{_ 'more'}}
+                {{> afQuickField name="type" options=itemTypes label=false}}
+                {{> afQuickField name="title" rightIcon="photo link" label=false placeholder=tellOthers}}
+                <a class="toggle-item-options">
+                    {{> icon icon="options large"}} {{_ "more"}}
                 </a>
             </div>
-            <div class='item-options'>
-                <div class='four fields'>
-                    <div class='field'>
-                        {{> insertLocationInputField label=false placeholder=locationPlaceholder docType='Items'}}
+            <div class="item-options">
+                <div class="three fields">
+                    <div class="field">
+                        {{> insertLocationInputField icon="marker" label=false placeholder=locationPlaceholder docType="Items"}}
                     </div>
-                    {{> formField label=radiusLabel name='radius' max=100 min=0 step=5 value=20 type='range'}}
-                    <div class='field'></div>
-                    <div class='field'></div>
+                    {{> formField label=radiusLabel name="radius" max=100 min=0 step=5 value=20 type="range"}}
+                    <div class="ui icon input field">
+                        <input type="text" name="daterange" placeholder="{{when}}">
+                        <i class="icon calendar small"></i>
+                    </div>
+                    {{> afQuickField name="from" type="hidden" label=false}}
+                    {{> afQuickField name="till" type="hidden" label=false}}
                 </div>
             </div>
-            {{> afQuickField name='doc' value=doc._id type='hidden' }}
-            {{> afQuickField name='docType' value=docType type='hidden'}}
-            {{> icon_header class='center aligned' icon='heart circular red link big submit-item'}}
+            {{> afQuickField name="doc" value=doc._id type="hidden" }}
+            {{> afQuickField name="docType" value=docType type="hidden"}}
+            {{> icon_header class="center aligned" icon="heart circular red link big submit-item"}}
         </div>
     {{/autoForm}}
 </template>
 
-<template name='editItemForm'>
-    {{#autoForm collection='Items' doc=doc type='update' id='edit-item-form'}}
-        {{> afQuickField name='title'}}
-        {{> afQuickField name='description' rows=3}}
-        <div class='fields seven wide'>
-            {{> afQuickField name='type' options=itemTypes}}
-            {{> editLocationInputField doc=doc docType='Items' label=editLocationLabel}}
+<template name="editItemForm">
+    {{#autoForm collection="Items" doc=doc type="update" id="edit-item-form"}}
+        {{> afQuickField name="title"}}
+        {{> afQuickField name="description" rows=3}}
+        <div class="fields four wide">
+            {{> afQuickField name="type" options=itemTypes}}
+            {{> editLocationInputField icon="marker" doc=doc docType="Items" label=editLocationLabel}}
             <div class="field">
-                {{> formField label=radiusLabel name='radius' max=100 min=0 step=5 value=rangeValue type='range'}}
+                {{> formField label=radiusLabel name="radius" max=100 min=0 step=5 value=rangeValue type="range"}}
+            </div>
+            <div class="field">
+                <label>{{_ 'when'}}</label>
+                <div class="ui icon input">
+                    <input type="text" name="daterange" value="{{dateRange}}" placeholder="{{when}}">
+                    <i class="icon calendar small"></i>
+                    {{> afQuickField name="from" type="hidden" label=false}}
+                    {{> afQuickField name="till" type="hidden" label=false}}
+                </div>
+
             </div>
         </div>
         {{> formUpdateActions}}
